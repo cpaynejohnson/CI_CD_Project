@@ -3,7 +3,7 @@ const fs = require('fs').promises;
 const bcrypt = require('bcrypt');
 const axios = require('axios');
 const {sequelize} = require('./db');
-const {User, School, Favorite, Major} = require('./models');
+const {User, School, Favorite, Major, Tour} = require('./models');
 
 const createUsers = async () => {
 
@@ -86,36 +86,34 @@ function createSchoolsArray1(results){
             }    
   };
 
-// const items = [
-//     {name : 'Gold'},
-//     {name : 'Silver'},
-//     {name : 'Paladium'}
-// ];
+const createTours = async () => {
 
+    const tours = [
+    {
+        school: 'Alabama A&M University',
+        image: '01 alabama_am_u-sign-lg.jpg',
+        tour_url : 'https://www.aamu.edu/about/visit-us/visiting-campus.html',
+        tourid : '100654'
 
-// const createTours = async () => {
-
-//     const tours = [
-//     {
-//         school: 'Alabama A&M University',
-//         tour_url : 'https://www.aamu.edu/about/visit-us/visiting-campus.html',
-//         SchoolId : '100654'
-//     },  
-//     {
-//         school: 'Alabama State University',
-//         tour_url : 'https://www.alasu.edu/admissions/campus-tours',
-//         SchoolId : '100724'
-//     },      
-//     {
-//         school: 'Albany State University',
-//         tour_url : 'https://www.asurams.edu/enrollment-management/admissions/campus-tour/',
-//         SchoolId : '138716'
-//     },  
-//     {
-//         school: 'Alcorn State University',
-//         tour_url : 'https://www.youtube.com/watch?v=EJi1aXQ7SbI&t=28s',
-//         SchoolId : '175342'
-//     },  
+    },  
+    {
+        school: 'Alabama State University',
+        image: '02 alabama_state_univ.jpg',
+        tour_url : 'https://www.alasu.edu/admissions/campus-tours',
+        tourid : '100724'
+    },      
+    {
+        school: 'Albany State University',
+        image: 'albany_state_univ.jpg',
+        tour_url : 'https://www.asurams.edu/enrollment-management/admissions/campus-tour/',
+        tourid : '138716'
+    },  
+    {
+        school: 'Alcorn State University',
+        image: '04 alcorn state_university.jpg',
+        tour_url : 'https://www.youtube.com/watch?v=EJi1aXQ7SbI&t=28s',
+        tourid : '175342'
+    },  
 //     {
 //         school: 'Allen University',
 //         tour_url : 'https://static1.squarespace.com/static/5f0e2cce65d789563f789332/t/5f7377c7a186ce23e797cb8d/1601402830117/AU+Look+Book.pdf',
@@ -647,10 +645,10 @@ function createSchoolsArray1(results){
 //         tour_url : 'https://law.udc.edu/',
 //         SchoolId : '363721'
 //     },
-// ];	
+];	
 
-// return tours
-// }
+return tours
+}
 
 const seed = async (school) => {
 
@@ -659,11 +657,10 @@ const seed = async (school) => {
     await createSchools(0);
     await createSchools(1);
     const users = await createUsers(); // create users w/ encrypted passwords
-   // const tours = await createTours();
+    const tours = await createTours();
     const userPromises = users.map(user => User.create(user));
-    // const itemPromises = items.map(item => Item.create(item));
-   // const tourPromises = tours.map(tour => Tour.create(tour));  , ...tourPromises
-    await Promise.all([...userPromises]);
+    const tourPromises = tours.map(tour => Tour.create(tour));
+    await Promise.all([...userPromises, ...tourPromises]);
     console.log("db populated!")
     
 }

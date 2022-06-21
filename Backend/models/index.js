@@ -5,7 +5,7 @@ class User extends Model {}
 class School extends Model {}
 class Favorite extends Model {}
 class Major extends Model {}
-class Image extends Model {}
+class Tour extends Model {}
 
 User.init({
     name: DataTypes.STRING,
@@ -64,8 +64,14 @@ Major.init({
     timestamps: false,
 });
 
-Image.init({
-    name: DataTypes.STRING
+Tour.init({
+    school: DataTypes.STRING,
+    image: DataTypes.STRING,
+    tour_url: DataTypes.STRING,
+    tourid: {
+        type: DataTypes.INTEGER,
+        foreignKey: true
+    },
 },  {
     sequelize,
     timestamps: false,
@@ -76,4 +82,4 @@ School.hasMany(Major);
 School.belongsToMany(User, {through: Favorite});
 User.belongsToMany(School, {through: Favorite});
 
-module.exports = { User, School, Favorite, Major, Image}
+module.exports = { User, School, Favorite, Major, Tour}
