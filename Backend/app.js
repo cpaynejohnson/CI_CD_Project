@@ -22,7 +22,8 @@ const axios = require('axios');
 
 
 
-const {User, Item, School, Favorite, Major} = require('./models');
+// const {User, Item, School, Favorite, Major} = require('./models');
+const {User, School, Favorite, Major} = require('./models/index2');
 const { use } = require("bcrypt/promises");
 const { application } = require("express");
 const { sequelize } = require("./db");
@@ -139,16 +140,17 @@ app.get(`/users/:id`, jwtCheck, async (req,res) => {
 })
 
 app.get(`/school`, async (req,res) => {
-  const schools = await School.findAll({
-    include: { model: Tour, attributes: ['tour_url']}
-  });  
+  const schools = await School.findAll
+  // ({
+  //   include: { model: Tour, attributes: ['tour_url']}
+  // });  
   res.json({schools});
  })
 
 app.get(`/school/:id`, async (req,res) => {
   const singleschool = await School.findAll({
     where: {id: req.params.id},
-      include: { model: Tour, attributes: ['tour_url']}
+      // include: { model: Tour, attributes: ['tour_url']}
     }); 
   res.json({singleschool});
 })

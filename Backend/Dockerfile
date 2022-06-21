@@ -19,7 +19,7 @@ COPY . .
 # command to run tests
 CMD [ "npm", "run", "test" ]
 
-# specify test build
+# specify app build
 FROM base as prod
 # clean dependancy install excluding dev dependancies
 RUN npm ci --production
@@ -27,5 +27,10 @@ RUN npm ci --production
 COPY . .
 #expose the port in the docker container
 EXPOSE 3000
+
+# seed the database
+RUN node seed.js
+
+
 # the command to start our app
-CMD [ "seed", "npm", "start" ]
+CMD [ "npm", "start" ]

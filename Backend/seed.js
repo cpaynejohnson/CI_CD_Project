@@ -3,7 +3,7 @@ const fs = require('fs').promises;
 const bcrypt = require('bcrypt');
 const axios = require('axios');
 const {sequelize} = require('./db');
-const {User, Item, School, Favorite, Major, Tour} = require('./models');
+const {User, School, Favorite, Major} = require('./models');
 
 const createUsers = async () => {
 
@@ -86,11 +86,11 @@ function createSchoolsArray1(results){
             }    
   };
 
-const items = [
-    {name : 'Gold'},
-    {name : 'Silver'},
-    {name : 'Paladium'}
-];
+// const items = [
+//     {name : 'Gold'},
+//     {name : 'Silver'},
+//     {name : 'Paladium'}
+// ];
 
 
 // const createTours = async () => {
@@ -661,9 +661,9 @@ const seed = async (school) => {
     const users = await createUsers(); // create users w/ encrypted passwords
    // const tours = await createTours();
     const userPromises = users.map(user => User.create(user));
-    const itemPromises = items.map(item => Item.create(item));
+    // const itemPromises = items.map(item => Item.create(item));
    // const tourPromises = tours.map(tour => Tour.create(tour));  , ...tourPromises
-    await Promise.all([...userPromises, ...itemPromises]);
+    await Promise.all([...userPromises]);
     console.log("db populated!")
     
 }
