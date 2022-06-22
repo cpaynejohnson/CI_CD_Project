@@ -22,8 +22,8 @@ const axios = require('axios');
 
 
 
-// const {User, Item, School, Favorite, Major} = require('./models');
-const {User, School, Favorite, Major} = require('./models/index2');
+
+const {User, School, Favorite, Major, Tour} = require('./models/index');
 const { use } = require("bcrypt/promises");
 const { application } = require("express");
 const { sequelize } = require("./db");
@@ -98,12 +98,6 @@ app.get('/', (req, res) => {
   res.sendFile('index.html', { root: './public' })
 })
 
-
-app.get(`/items`, async (req,res) => {
-  const items = await Item.findAll();
-  res.json({items});
-})
-
 app.get(`/users/:userid/favorites`, async (req,res) => {
   const favorites = await User.findAll({ 
     where: {id: req.params.userid}, 
@@ -123,11 +117,6 @@ app.get(`/majors/:schoolid`, async (req,res) => {
   res.json({major});  
 })
 
-app.get(`/items/:id`, async (req,res) => {
-  const singleitems = await Item.findByPk(req.params.id);
-  res.json({singleitems});
-})
-
 app.get(`/users`, async (req,res) => {
   const users = await User.findAll();
   res.json({users});
@@ -139,19 +128,21 @@ app.get(`/users/:id`, jwtCheck, async (req,res) => {
   res.json({users});
 })
 
-app.get(`/school`, async (req,res) => {
+app.get(`/schools`, async (req,res) => {
   const schools = await School.findAll
-  // ({
-  //   include: { model: Tour, attributes: ['tour_url']}
-  // });  
+  ({
+    include: { 
+      model: Tour, 
+      attributes: ['tour_url', 'image']}
+  });  
   res.json({schools});
  })
 
 app.get(`/school/:id`, async (req,res) => {
   const singleschool = await School.findAll({
     where: {id: req.params.id},
-      // include: { model: Tour, attributes: ['tour_url']}
-    }); 
+      include: { model: Tour, attributes: ['tour_url', 'image']}})
+   
   res.json({singleschool});
 })
 
@@ -159,7 +150,7 @@ app.get(`/schoolname/:name`, async (req,res) => {
   const searchTerm = req.params.name;
     const schoolsname = await School.findAll({
     where : {name: {[Op.like] : `%${searchTerm}%`}},
-      // include: { model: Tour, attributes: ['tour_url']}
+      include: { model: Tour, attributes: ['tour_url', 'image']}
     });
    res.json({schoolsname});  
 })  
