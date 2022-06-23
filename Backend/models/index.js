@@ -69,24 +69,12 @@ Tour.init({
     school: DataTypes.STRING,
     image: DataTypes.STRING,
     tour_url: DataTypes.STRING,
-    SchoolId: {
-        type: DataTypes.INTEGER,
-        foreignKey: true,
-        references: {
-            model: School,
-            key: 'id'}}
+      
 },  {
     sequelize,
     timestamps: false,
 });
 
-// SchoolTour.init({
-//     SchoolId: DataTypes.UUID,
-//     TourId: DataTypes.UUID,
-// },  {
-//     sequelize,
-//     timestamps: false,
-// })
     
 Major.belongsTo(School);
 School.hasMany(Major);
@@ -95,4 +83,4 @@ School.hasOne(Tour);
 School.belongsToMany(User, {through: Favorite});
 User.belongsToMany(School, {through: Favorite});
 
-module.exports = { User, School, Favorite, Major, Tour}
+module.exports = {User, School, Favorite, Major, Tour}

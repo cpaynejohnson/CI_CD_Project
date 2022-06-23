@@ -86,147 +86,147 @@ function createSchoolsArray1(results){
             }    
   };
 
-const createTours = async () => {
+// const createTours = async () => {
 
-    const tours = [
-    {
-        school: 'Alabama A&M University',
-        image: '01_alabama_am_sign.jpg',
-        tour_url : 'https://www.aamu.edu/about/visit-us/visiting-campus.html',
-        SchoolId : '100654'
-    },  
-    {
-        school: 'Alabama State University',
-        image: '02_alabama_state.jpg',
-        tour_url : 'https://www.alasu.edu/admissions/campus-tours',
-        SchoolId : '100724'
-    },      
-    {
-        school: 'Albany State University',
-        image: '03_albany_state.jpg',
-        tour_url : 'https://www.asurams.edu/enrollment-management/admissions/campus-tour/',
-        SchoolId : '138716'
-    },  
-    {
-        school: 'Alcorn State University',
-        image: '04_alcorn state.jpg',
-        tour_url : 'https://www.youtube.com/watch?v=EJi1aXQ7SbI&t=28s',
-        SchoolId : '175342'
-    },  
-    {
-        school: 'Allen University',
-        image: '05_allen.jpg',
-        tour_url : 'https://static1.squarespace.com/static/5f0e2cce65d789563f789332/t/5f7377c7a186ce23e797cb8d/1601402830117/AU+Look+Book.pdf',
-        SchoolId : '217624'
-    },  
-    {
-        school: 'American Baptist College',
-        image: '06_american_baptist.jpg',
-        tour_url : 'https://abcnash.edu/',
-        SchoolId : '219505'
-    },  
-    {
-        school: 'University of Arkansas at Pine Bluff',
-        image: '07_ua_pine_bluff.jpg',
-        tour_url : 'https://www.picktime.com/uapbcampustours',
-        SchoolId : '106412'
-    },
-    {
-        school: 'Arkansas Baptist College',
-        image: '08_arkansas_baptist.jpg',
-        tour_url : 'https://www.arkansasbaptist.edu/',
-        SchoolId : '106306'
-    },
-    {    	
-        school: 'Benedict College',
-        image: '10_benedict.jpg',
-        tour_url : 'https://www.benedict.edu/office-of-admissions-and-recruitment/campus-tours/',
-        SchoolId : '217721'
-    },  
-    {
-        school: 'Bennett College',
-        image: '09_bennett.jpg',
-        tour_url : 'https://www.bennett.edu/?s=campus+tour',
-        SchoolId : '197993'
-    },  
-    {
-        school: 'Bethune-Cookman University',
-        image: '11_bethune_cookman.jpg',
-        tour_url : 'https://visit.cookman.edu/',
-        SchoolId : '132602'
-    },  
-    {
-        school: 'Bishop State Community College',
-        image: '12_bishop_state.jpg',
-        tour_url : 'https://www.bishop.edu/contact',
-        SchoolId : '102030'
-    },  
-    {
-        school: 'Bluefield State College',
-        image: '13_bluefield_state.jpg',
-        tour_url : 'https://bluefieldstate.edu/visit-bsc/',
-        SchoolId : '237215'
-    },  
-    {
-        school: 'Bowie State University',
-        image: '14_bowie_state.jpg',
-        tour_url : 'https://www.bowiestate.edu/admissions-and-aid/visit-us/',
-        SchoolId : '162007'
-    },
-    // {  	
-    //     school: 'Carver College',
-    //     image: '15_carver.jpg',
-    //     tour_url : 'https://www.carver.edu/?page_id=9',
-    //     SchoolId : ''
-    // },
-    {
-        school: 'Central State University',
-        image: '16_central_state.jpg',
-        tour_url : 'https://www.centralstate.edu/prospects/video-csu360-1.php',
-        SchoolId : '201690'
-    },  
-    {
-        school: 'Cheyney University of Pennsylvania',
-        image: '17_cheyney.jpg',
-        tour_url : 'https://cheyney.edu/admissions/visiting-the-campus/',
-        SchoolId : '211608'
-    },  
-    {
-        school: 'Claflin University',
-        image: '18_claflin.jpg',
-        tour_url : 'https://www.claflin.edu/',
-        SchoolId : '217873'
-    },  
-    {
-        school: 'Clark Atlanta University',
-        image: '19_clark_atlanta .jpg',
-        tour_url : 'https://www.cau.edu/_images/Campus-Tour.html',
-        SchoolId : '138947'
-    },  
-    {
-        school: 'Clinton College',
-        image: '20_clinton.jpg',
-        tour_url : 'https://www.clintoncollege.edu/about/events/?#',
-        SchoolId : '217891'
-    },  
-    {
-        school: 'Coahoma Community College',
-        image: '21_coahoma_cc.jpg',
-        tour_url : 'http://www.coahomacc.edu/admissions/campus-visit-form.html',
-        SchoolId : '175519'
-    },
-    {
-        school: 'Coppin State University',
-        image: '22_coppin_state.jpg',
-        tour_url : 'https://www.coppin.edu/visit',
-        SchoolId : '162283'
-    },  
-    { 	
-        school: 'Delaware State University',
-        image: '23_delaware_state.jpg',
-        tour_url : 'https://www.desu.edu/admissions/visit-dsu',
-        SchoolId : '130934'
-    },  
+//     const tours = [
+//     {
+//         school: 'Alabama A&M University',
+//         image: '01_alabama_am_sign.jpg',
+//         tour_url : 'https://www.aamu.edu/about/visit-us/visiting-campus.html',
+//         SchoolId : 100654
+//     },  
+//     {
+//         school: 'Alabama State University',
+//         image: '02_alabama_state.jpg',
+//         tour_url : 'https://www.alasu.edu/admissions/campus-tours',
+//         SchoolId : 100724
+//     },      
+//     {
+//         school: 'Albany State University',
+//         image: '03_albany_state.jpg',
+//         tour_url : 'https://www.asurams.edu/enrollment-management/admissions/campus-tour/',
+//         SchoolId : 138716
+//     },  
+//     {
+//         school: 'Alcorn State University',
+//         image: '04_alcorn state.jpg',
+//         tour_url : 'https://www.youtube.com/watch?v=EJi1aXQ7SbI&t=28s',
+//         SchoolId : 175342
+//     },  
+//     {
+//         school: 'Allen University',
+//         image: '05_allen.jpg',
+//         tour_url : 'https://static1.squarespace.com/static/5f0e2cce65d789563f789332/t/5f7377c7a186ce23e797cb8d/1601402830117/AU+Look+Book.pdf',
+//         SchoolId : 217624
+//     },  
+//     {
+//         school: 'American Baptist College',
+//         image: '06_american_baptist.jpg',
+//         tour_url : 'https://abcnash.edu/',
+//         SchoolId : 219505
+//     }  
+//     {
+//         school: 'University of Arkansas at Pine Bluff',
+//         image: '07_ua_pine_bluff.jpg',
+//         tour_url : 'https://www.picktime.com/uapbcampustours',
+//         SchoolId : '106412'
+//     },
+//     {
+//         school: 'Arkansas Baptist College',
+//         image: '08_arkansas_baptist.jpg',
+//         tour_url : 'https://www.arkansasbaptist.edu/',
+//         SchoolId : '106306'
+//     },
+//     {    	
+//         school: 'Benedict College',
+//         image: '10_benedict.jpg',
+//         tour_url : 'https://www.benedict.edu/office-of-admissions-and-recruitment/campus-tours/',
+//         SchoolId : '217721'
+//     },  
+//     {
+//         school: 'Bennett College',
+//         image: '09_bennett.jpg',
+//         tour_url : 'https://www.bennett.edu/?s=campus+tour',
+//         SchoolId : '197993'
+//     },  
+//     {
+//         school: 'Bethune-Cookman University',
+//         image: '11_bethune_cookman.jpg',
+//         tour_url : 'https://visit.cookman.edu/',
+//         SchoolId : '132602'
+//     },  
+//     {
+//         school: 'Bishop State Community College',
+//         image: '12_bishop_state.jpg',
+//         tour_url : 'https://www.bishop.edu/contact',
+//         SchoolId : '102030'
+//     },  
+//     {
+//         school: 'Bluefield State College',
+//         image: '13_bluefield_state.jpg',
+//         tour_url : 'https://bluefieldstate.edu/visit-bsc/',
+//         SchoolId : '237215'
+//     },  
+//     {
+//         school: 'Bowie State University',
+//         image: '14_bowie_state.jpg',
+//         tour_url : 'https://www.bowiestate.edu/admissions-and-aid/visit-us/',
+//         SchoolId : '162007'
+//     },
+//     // {  	
+//     //     school: 'Carver College',
+//     //     image: '15_carver.jpg',
+//     //     tour_url : 'https://www.carver.edu/?page_id=9',
+//     //     SchoolId : ''
+//     // },
+//     {
+//         school: 'Central State University',
+//         image: '16_central_state.jpg',
+//         tour_url : 'https://www.centralstate.edu/prospects/video-csu360-1.php',
+//         SchoolId : '201690'
+//     },  
+//     {
+//         school: 'Cheyney University of Pennsylvania',
+//         image: '17_cheyney.jpg',
+//         tour_url : 'https://cheyney.edu/admissions/visiting-the-campus/',
+//         SchoolId : '211608'
+//     },  
+//     {
+//         school: 'Claflin University',
+//         image: '18_claflin.jpg',
+//         tour_url : 'https://www.claflin.edu/',
+//         SchoolId : '217873'
+//     },  
+//     {
+//         school: 'Clark Atlanta University',
+//         image: '19_clark_atlanta .jpg',
+//         tour_url : 'https://www.cau.edu/_images/Campus-Tour.html',
+//         SchoolId : '138947'
+//     },  
+//     {
+//         school: 'Clinton College',
+//         image: '20_clinton.jpg',
+//         tour_url : 'https://www.clintoncollege.edu/about/events/?#',
+//         SchoolId : '217891'
+//     },  
+//     {
+//         school: 'Coahoma Community College',
+//         image: '21_coahoma_cc.jpg',
+//         tour_url : 'http://www.coahomacc.edu/admissions/campus-visit-form.html',
+//         SchoolId : '175519'
+//     },
+//     {
+//         school: 'Coppin State University',
+//         image: '22_coppin_state.jpg',
+//         tour_url : 'https://www.coppin.edu/visit',
+//         SchoolId : '162283'
+//     },  
+//     { 	
+//         school: 'Delaware State University',
+//         image: '23_delaware_state.jpg',
+//         tour_url : 'https://www.desu.edu/admissions/visit-dsu',
+//         SchoolId : '130934'
+//     },  
 //     {
 //         school: 'Denmark Technical College',
 //         image: '06_american_baptist.jpg',
@@ -748,27 +748,29 @@ const createTours = async () => {
 //         image: '06_american_baptist.jpg',
 //         tour_url : 'https://law.udc.edu/',
 //         SchoolId : '363721'
-//     },
-];	
+//     }
+// ];	
 
-return tours
-}
+// return tours
+// }
 
-const seed = async (school) => {
-
+const seed = async () => {
+//  try{
     await sequelize.sync({ force: true });
 
     await createSchools(0);
     await createSchools(1);
     const users = await createUsers(); // create users w/ encrypted passwords
-    const tours = await createTours();
+    // const tours = await createTours();
     const userPromises = users.map(user => User.create(user));
-    const tourPromises = tours.map(tour => Tour.create(tour));
+    // const tourPromises = tours.map(tour => Tour.create(tour));
     // await Promise.all([...userPromises, ...tourPromises]);
     await Promise.userPromises;
     // await Promise.tourPromises;
     console.log("db populated!")
-    
+//  } catch (error) {
+//   console.error(error);
+//  }  
 }
 
 seed ();

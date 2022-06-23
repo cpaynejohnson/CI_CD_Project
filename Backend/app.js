@@ -91,11 +91,11 @@ async function dbAuthorizer(username, password, callbak){
 // GET routes go here
 
 
-// app.get('/', (req, res) => {
-//   res.send('<h1>App Running</h1>')
-// })
 app.get('/', (req, res) => {
-  res.sendFile('index.html', { root: './public' })
+  res.send('<h1>App Running</h1>')
+// })
+// app.get('/', (req, res) => {
+//   res.sendFile('index.html', { root: './public' })
 })
 
 app.get(`/users/:userid/favorites`, async (req,res) => {
@@ -128,12 +128,13 @@ app.get(`/users/:id`, jwtCheck, async (req,res) => {
   res.json({users});
 })
 
-app.get(`/schools`, async (req,res) => {
+app.get(`/school`, async (req,res) => {
   const schools = await School.findAll
   ({
-    include: { 
-      model: Tour, 
-      attributes: ['tour_url', 'image']}
+    // include: { 
+    //   model: Tour, 
+    //   attributes: ['tour_url', 'image'], 
+    //   where: {tourid:School.id}}
   });  
   res.json({schools});
  })
@@ -141,7 +142,8 @@ app.get(`/schools`, async (req,res) => {
 app.get(`/school/:id`, async (req,res) => {
   const singleschool = await School.findAll({
     where: {id: req.params.id},
-      include: { model: Tour, attributes: ['tour_url', 'image']}})
+    //  include: { model: Tour, attributes: ['tour_url', 'image']}
+    })
    
   res.json({singleschool});
 })
@@ -150,7 +152,7 @@ app.get(`/schoolname/:name`, async (req,res) => {
   const searchTerm = req.params.name;
     const schoolsname = await School.findAll({
     where : {name: {[Op.like] : `%${searchTerm}%`}},
-      include: { model: Tour, attributes: ['tour_url', 'image']}
+      // include: { model: Tour, attributes: ['tour_url', 'image']}
     });
    res.json({schoolsname});  
 })  
@@ -250,6 +252,6 @@ app.delete("/users/:id", async (req, res) => {
 //   res.send(`${favorites.SchoolId} has been added to your favorites`)
 });
 
-  app.listen(3000, () => {
-    console.log("Server running on port 3000");
+  app.listen(3001, () => {
+    console.log("Server running on port 3001");
   });  
