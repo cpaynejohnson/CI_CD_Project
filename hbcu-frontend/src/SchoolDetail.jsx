@@ -7,7 +7,9 @@ function SchoolDetail() {
     let { id } = useParams();
 
     //schooState will store the specific school we fetch
+    //tour state will get tour data
     const [schoolState, setSchoolState]=useState({})
+    const [tourState, setTourState]=useState({})
 
     //function to fetch schools and store in state
     const fetchSchoolDetail = async () =>{
@@ -24,10 +26,27 @@ function SchoolDetail() {
         console.log(err)
         }
     }
+
+    //function to fetch schools and store in state
+    const fetchTour = async () =>{
+        try{
+            console.log(id)
+            const response = await fetch(`http://hub-env.eba-ufpmtewu.us-east-1.elasticbeanstalk.com/tour/${id}`, {
+            method: 'GET'
+            });
+            const responseJSON = await response.json()
+            //updates state with school list
+            console.log(responseJSON)
+            setTourState(responseJSON)
+        } catch(err) {
+        console.log(err)
+        }
+    }
     
     //useEffect will call the fetchSchoolDetail when this component mounts
     useEffect(() => {
         fetchSchoolDetail()
+        fetchTour()
     },[id])
 
     return (
@@ -36,6 +55,7 @@ function SchoolDetail() {
         <div >
             
             <h2 >{schoolState.name}</h2>
+            <img src={tourState.image}/>
             {/* 
             <img className="school-img" style= {{width:'700px'}} src={schoolState.image} alt={schoolState.name} />
             <br/>
