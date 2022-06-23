@@ -69,6 +69,8 @@ Tour.init({
     school: DataTypes.STRING,
     image: DataTypes.STRING,
     tour_url: DataTypes.STRING,
+    SchoolId: DataTypes.INTEGER,
+
       
 },  {
     sequelize,
@@ -78,8 +80,6 @@ Tour.init({
     
 Major.belongsTo(School);
 School.hasMany(Major);
-Tour.belongsTo(School);
-School.hasOne(Tour);
 School.belongsToMany(User, {through: Favorite});
 User.belongsToMany(School, {through: Favorite});
 

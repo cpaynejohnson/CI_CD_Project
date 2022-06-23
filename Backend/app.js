@@ -129,24 +129,16 @@ app.get(`/users/:id`, jwtCheck, async (req,res) => {
 })
 
 app.get(`/school`, async (req,res) => {
-  const schools = await School.findAll
-  ({
-    // include: { 
-    //   model: Tour, 
-    //   attributes: ['tour_url', 'image'], 
-    //   where: {tourid:School.id}}
-  });  
+  const schools = await School.findAll();  
   res.json({schools});
  })
 
 app.get(`/school/:id`, async (req,res) => {
-  const singleschool = await School.findAll({
-    where: {id: req.params.id},
-    //  include: { model: Tour, attributes: ['tour_url', 'image']}
-    })
-   
-  res.json({singleschool});
+  const schoolid = await School.findOne(
+    {where: {id: req.params.id}});
+  res.json({schoolid});
 })
+
 
 app.get(`/schoolname/:name`, async (req,res) => {
   const searchTerm = req.params.name;
@@ -180,6 +172,19 @@ app.get(`/schoolowner/:ownership`, async (req,res) => {
   res.json({schoolsowner});  
 })
 
+app.get(`/tour/:SchoolId`, async (req,res) => {
+  const toured = await Tour.findOne({ 
+   where: {Schoolid: req.params.SchoolId}})
+
+  res.json({toured});  
+
+})
+
+app.get(`/tour/`, async (req,res) => {
+  const tours = await Tour.findAll({ })
+  res.json({tours});  
+
+})
 
 // POST routes go here
 
